@@ -34,9 +34,3 @@ class LoginPage():
     def button_newuser_click(self):
         newuser_button = self.driver.find_element(*self.BUTTON_NEWUSER)
         newuser_button.click()
-
-    def get_userinfo_name(self):
-        dashboard_username = self.driver.find_element(*self.DASHBOARD_USERINFO)
-        return dashboard_username.text
-
-   
