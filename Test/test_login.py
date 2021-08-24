@@ -1,3 +1,4 @@
+from Page import register_page
 from selenium import webdriver
 from Page.login_page import LoginPage
 from Test.test_register import TestRegister
@@ -12,6 +13,6 @@ class TestLogin():
 
         assert login_page.get_userinfo_name() == "as"
 
-   
+    
 
     
