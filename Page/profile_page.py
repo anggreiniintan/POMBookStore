@@ -18,7 +18,7 @@ class ProfilePage():
         return dashboard_username.text
 
     def click_go_bookstore(self):
-        self.driver.execute_script("window.scrollTo(0, 250)")
+        self.driver.execute_script("window.scrollTo(0, 450)")
         go_to_bookstore = self.driver.find_element(*self.GO_BOOKSTORE)
         go_to_bookstore.click()
    

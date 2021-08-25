@@ -9,5 +9,5 @@ def browser():
     browser.implicitly_wait(10)
     browser.maximize_window()
     yield browser
-    time.sleep(3)
-    browser.close()
+    # time.sleep(3)
+    # browser.close()
