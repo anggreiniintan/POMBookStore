@@ -12,10 +12,14 @@ class BookStorePage():
     CHOOSE_BOOK = (By.ID, "see-book-Git Pocket Guide")
     AFTER_CHOOSE_BOOK = (By.XPATH, "//label[contains(text(),'Git Pocket Guide')]")
     ADD_TO_COLLECTION =(By.XPATH, "//button[contains(text(),'Add To Your Collection')]")
-
+    TITTLE_HEADER = (By.CLASS_NAME, "main-header")
     #Method Constuctor
     def __init__(self, browser: webdriver.Remote):
         self.driver = browser
+
+    def get_tittle_header(self):
+        tittle_header = self.driver.find_element(*self.TITTLE_HEADER)
+        return tittle_header.text
 
     def choosebook(self):
         book = self.driver.find_element(*self.CHOOSE_BOOK)
@@ -38,9 +42,7 @@ class BookStorePage():
         self.driver.execute_script("window.scrollTo(0, 250)") 
         
         self.driver.find_element(*self.ADD_TO_COLLECTION).click() 
-        
-        
-    
+            
     def get_alerttext(self):
         try:
             WebDriverWait(self.driver, 5).until(EC.alert_is_present(), 'Timed out waiting for alerts to appear')
