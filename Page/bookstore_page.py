@@ -13,6 +13,9 @@ class BookStorePage():
     AFTER_CHOOSE_BOOK = (By.XPATH, "//label[contains(text(),'Git Pocket Guide')]")
     ADD_TO_COLLECTION =(By.XPATH, "//button[contains(text(),'Add To Your Collection')]")
     TITTLE_HEADER = (By.CLASS_NAME, "main-header")
+    SEARCH_BOX = (By.ID, "searchBox")
+    LIST_BOOK_SERCH = (By.CSS_SELECTOR, ".mr-2 a")
+
     #Method Constuctor
     def __init__(self, browser: webdriver.Remote):
         self.driver = browser
@@ -20,6 +23,15 @@ class BookStorePage():
     def get_tittle_header(self):
         tittle_header = self.driver.find_element(*self.TITTLE_HEADER)
         return tittle_header.text
+
+    def search_box(self):
+        search_box = self.driver.find_element(*self.SEARCH_BOX)
+        search_box.send_keys("Learn")
+
+    def search_result(self):
+        sresult = self.driver.find_element(*self.LIST_BOOK_SERCH)
+        return sresult.text
+
 
     def choosebook(self):
         book = self.driver.find_element(*self.CHOOSE_BOOK)

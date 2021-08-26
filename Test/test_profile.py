@@ -14,7 +14,17 @@ class TestProfile():
        profile_page.click_go_bookstore()
 
        assert bookstore_page.get_tittle_header() == "Book Store"
-   
+  
+   def test_searchBox(self, browser: webdriver.Remote):
+       profile_page = ProfilePage(browser)
+       bookstore_page = BookStorePage(browser)
+       test_login = TestLogin()
+       test_login.test_valid_login(browser)
+       profile_page.click_go_bookstore()
+       bookstore_page.search_box()
+
+       assert bookstore_page.search_result() == "Learning JavaScript Design Patterns"
+
    def test_delete_allbooks(self, browser: webdriver.Remote):
        profile_page = ProfilePage(browser)
        alert = BookStorePage(browser)
