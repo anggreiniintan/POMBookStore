@@ -1,3 +1,4 @@
+from Page.login_page import LoginPage
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import  expected_conditions as EC
@@ -41,6 +42,17 @@ class TestProfile():
        test_login.test_valid_login(browser)
        profile_page.click_delete_allbooks()
        profile_page.modal_cancel_delete()
+
+   def test_logout(self, browser: webdriver.Remote):
+       profile_page = ProfilePage(browser)
+       login_page = LoginPage(browser)
+       test_login = TestLogin()
+       test_login.test_valid_login(browser)
+       profile_page.logout() 
+
+       assert login_page.get_text_main_header() == "Login"
+
+    
 
        
 

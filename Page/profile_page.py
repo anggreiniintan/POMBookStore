@@ -12,6 +12,7 @@ class ProfilePage():
     MODAL = (By.CLASS_NAME, "class='modal-content'")
     MODAL_OK = (By.ID, "closeSmallModal-ok")
     MODAL_CANCEL = (By.ID, "closeSmallModal-cancel")
+    BUTTON_LOG_OUT = (By.XPATH, "//button[contains(text(),'Log out')]")
     
     #Method Constuctor
     def __init__(self, browser: webdriver.Remote):
@@ -41,5 +42,7 @@ class ProfilePage():
         #want to cancel delete all books
         cancel_delete = self.driver.find_element(*self.MODAL_CANCEL)
         cancel_delete.click()
-
-   
+    
+    def logout(self):
+        button_logout = self.driver.find_element(*self.BUTTON_LOG_OUT)
+        button_logout.click()

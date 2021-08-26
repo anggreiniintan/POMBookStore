@@ -10,7 +10,8 @@ class LoginPage():
     BUTTON_SIGIN = (By.ID, "login")
     BUTTON_NEWUSER = (By.ID, "newUser")
     DASHBOARD_USERINFO = (By.ID, "userName-value")
-    
+    HEADER_LOGIN = (By.XPATH, "//div[contains(text(),'Login')]")
+
     
     #Method Constuctor
     def __init__(self, browser: webdriver.Remote):
@@ -34,3 +35,7 @@ class LoginPage():
     def button_newuser_click(self):
         newuser_button = self.driver.find_element(*self.BUTTON_NEWUSER)
         newuser_button.click()
+
+    def get_text_main_header(self):
+        get_text = self.driver.find_element(*self.HEADER_LOGIN)
+        return get_text.text

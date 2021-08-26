@@ -4,7 +4,7 @@ from Page.login_page import LoginPage
 from Page.profile_page import ProfilePage
 
 class TestLogin():
-    def test_valid_login(self, browser: webdriver.Remote):
+       def test_valid_login(self, browser: webdriver.Remote):
         login_page = LoginPage(browser)
         profile_page = ProfilePage(browser)        
         login_page.load_website()
