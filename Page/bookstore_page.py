@@ -11,7 +11,7 @@ class BookStorePage():
     # LOCATOR
     CHOOSE_BOOK = (By.ID, "see-book-Git Pocket Guide")
     AFTER_CHOOSE_BOOK = (By.XPATH, "//label[contains(text(),'Git Pocket Guide')]")
-    ADD_TO_LOCATION =(By.XPATH, "//button[contains(text(),'Add To Your Collection')]")
+    ADD_TO_COLLECTION =(By.XPATH, "//button[contains(text(),'Add To Your Collection')]")
 
     #Method Constuctor
     def __init__(self, browser: webdriver.Remote):
@@ -37,12 +37,8 @@ class BookStorePage():
     def add_to_collection(self):
         self.driver.execute_script("window.scrollTo(0, 250)") 
         
-        self.driver.find_element(*self.ADD_TO_LOCATION).click() 
+        self.driver.find_element(*self.ADD_TO_COLLECTION).click() 
         
-        # BookStorePage.get_alerttext(self)
-        # obj = self.driver.switch_to.alert
-        
-        # return obj.text
         
     
     def get_alerttext(self):
