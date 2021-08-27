@@ -13,7 +13,8 @@ class ProfilePage():
     MODAL_OK = (By.ID, "closeSmallModal-ok")
     MODAL_CANCEL = (By.ID, "closeSmallModal-cancel")
     BUTTON_LOG_OUT = (By.XPATH, "//button[contains(text(),'Log out')]")
-    
+    PUBLISHER = (By.CLASS_NAME, "rt-td")
+
     #Method Constuctor
     def __init__(self, browser: webdriver.Remote):
         self.driver = browser
@@ -42,6 +43,12 @@ class ProfilePage():
         #want to cancel delete all books
         cancel_delete = self.driver.find_element(*self.MODAL_CANCEL)
         cancel_delete.click()
+
+    def get_publisher(self):
+        publisher = self.driver.find_elements(*self.PUBLISHER)
+        for i in publisher:
+            if i.text == "O'Reilly Media":
+                return True
     
     def logout(self):
         button_logout = self.driver.find_element(*self.BUTTON_LOG_OUT)

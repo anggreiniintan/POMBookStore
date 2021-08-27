@@ -43,6 +43,13 @@ class TestProfile():
        profile_page.click_delete_allbooks()
        profile_page.modal_cancel_delete()
 
+   def test_getpublisher(self, browser: webdriver.Remote):
+       profile_page = ProfilePage(browser)
+       test_login = TestLogin()
+       test_login.test_valid_login(browser)
+       
+       assert profile_page.get_publisher() 
+       
    def test_logout(self, browser: webdriver.Remote):
        profile_page = ProfilePage(browser)
        login_page = LoginPage(browser)
