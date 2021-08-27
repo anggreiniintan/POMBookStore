@@ -1,7 +1,5 @@
 from Page.login_page import LoginPage
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import  expected_conditions as EC
 from Page.profile_page import ProfilePage
 from Test.test_login import TestLogin
 from Page.bookstore_page import BookStorePage
@@ -49,7 +47,7 @@ class TestProfile():
        test_login.test_valid_login(browser)
        
        assert profile_page.get_publisher() 
-       
+
    def test_logout(self, browser: webdriver.Remote):
        profile_page = ProfilePage(browser)
        login_page = LoginPage(browser)
