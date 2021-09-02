@@ -10,4 +10,4 @@ def browser():
     browser.maximize_window()
     yield browser
     time.sleep(5)
-    # browser.close()
+    browser.close()

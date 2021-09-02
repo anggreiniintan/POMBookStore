@@ -11,6 +11,7 @@ class LoginPage():
     BUTTON_NEWUSER = (By.ID, "newUser")
     DASHBOARD_USERINFO = (By.ID, "userName-value")
     HEADER_LOGIN = (By.XPATH, "//div[contains(text(),'Login')]")
+    OUTPUT_INVALID = (By.ID, "name")
 
     
     #Method Constuctor
@@ -39,3 +40,7 @@ class LoginPage():
     def get_text_main_header(self):
         get_text = self.driver.find_element(*self.HEADER_LOGIN)
         return get_text.text
+    
+    def output_invalid_login(self):
+        output = self.driver.find_element(*self.OUTPUT_INVALID)
+        return output.text

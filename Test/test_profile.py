@@ -24,16 +24,6 @@ class TestProfile():
 
        assert bookstore_page.search_result() == "Learning JavaScript Design Patterns"
 
-   def test_delete_allbooks(self, browser: webdriver.Remote):
-       profile_page = ProfilePage(browser)
-       alert = BookStorePage(browser)
-       test_login = TestLogin()
-       test_login.test_valid_login(browser)
-       profile_page.click_delete_allbooks()
-       profile_page.modal_delete_allbooks()
-       
-       assert alert.get_alerttext() == "All Books deleted."
-
    def test_cancel_delete_allbooks(self, browser: webdriver.Remote):
        profile_page = ProfilePage(browser)
        test_login = TestLogin()
@@ -47,6 +37,16 @@ class TestProfile():
        test_login.test_valid_login(browser)
        
        assert profile_page.get_publisher() 
+
+   def test_delete_allbooks(self, browser: webdriver.Remote): 
+       profile_page = ProfilePage(browser)
+       alert = BookStorePage(browser)
+       test_login = TestLogin()
+       test_login.test_valid_login(browser)
+       profile_page.click_delete_allbooks()
+       profile_page.modal_delete_allbooks()
+       
+       assert alert.get_alerttext() == "All Books deleted."
 
    def test_logout(self, browser: webdriver.Remote):
        profile_page = ProfilePage(browser)

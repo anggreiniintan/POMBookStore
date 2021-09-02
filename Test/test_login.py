@@ -14,6 +14,15 @@ class TestLogin():
 
         assert profile_page.get_userinfo_name() == "as"
 
+       def test_notvalid_login(self, browser: webdriver.Remote):
+        login_page = LoginPage(browser)    
+        login_page.load_website()
+        login_page.set_username("a")
+        login_page.set_pw("intaN21@")
+        login_page.button_signin_click()
+
+        assert login_page.output_invalid_login() == "Invalid username or password!"
+
     
 
     
